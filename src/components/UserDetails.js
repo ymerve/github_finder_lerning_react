@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import GithubContext from './context/githubContext'
+import GithubContext from './context/github/githubContext'
 import Loading from './Loading'
 import Repos from './Repos'
 
@@ -8,7 +8,6 @@ import Repos from './Repos'
 const UserDetails = (props) => {
     const { user, loading, repos, getUser, getUserRepos } = useContext(GithubContext);
     const { login } = useParams();
-    console.log(props)
     useEffect(() => {
         getUser(login);
         getUserRepos(login);

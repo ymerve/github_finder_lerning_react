@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import githubReducer from "./githubReducer";
+import GithubReducer from "./githubReducer";
 import GithubContext from "./githubContext";
 import axios from "axios";
 
@@ -10,7 +10,7 @@ const GithubState = (props) => {
         repos: [],
         loading: false
     }
-    const [state, dispatch] = useReducer(githubReducer, initialState);
+    const [state, dispatch] = useReducer(GithubReducer, initialState);
     const searchUsers = (keyword) => {
         setLoading();
         setTimeout(() => {

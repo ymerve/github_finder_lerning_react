@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import AlertContext from './context/alert/alertContext'
 
-const Alert = (props) => {
+const Alert = () => {
+  const { alert } = useContext(AlertContext);
   return (
-    props.alert!== null && (
-        <div className="container my-2">
-            <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">{props.alert.msg}
-            <button className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+    alert !== null && (
+      <div className="container my-2">
+        <div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">{alert.msg}
+          <button className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+      </div>
     )
   )
 }
