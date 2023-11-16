@@ -5,13 +5,13 @@ import {
     Routes
 } from 'react-router-dom';
 import Navbar from './Navbar'
-import Users from './Users'
-import Search from './Search';
 import Alert from './Alert';
 import About from './About';
 import UserDetails from './UserDetails';
 import GithubState from './context/github/githubState';
 import AlertState from './context/alert/alertState';
+import NotFound from './NotFound';
+import Home from './Home';
 /**
  * 1 - create context
  * 2- create reducer
@@ -28,17 +28,11 @@ const App = () => {
                     <Routes>
                         <Route
                             path="/"
-                            element={
-                                (
-                                    <>
-                                        <Search />
-                                        <Users />
-                                    </>
-                                )
-                            }
+                            element={<Home />}
                         />
                         <Route path='/about' element={<About />} />
                         <Route path="/user/:login" element={<UserDetails />} />
+                        <Route path='*' element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>
             </AlertState>
